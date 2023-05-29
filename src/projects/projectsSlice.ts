@@ -23,7 +23,10 @@ export const loadProjects = createAsyncThunk(
       const response = await projectAPI.get(page)
       return { projects: response, page }
     } catch (err) {
-      return rejectWithValue(err.message)
+      if (err instanceof Error) {
+        return rejectWithValue(err.message)
+      }
+      return rejectWithValue("An unknown error occurred")
     }
   }
 )
@@ -34,7 +37,10 @@ export const saveProject = createAsyncThunk(
     try {
       return await projectAPI.put(project)
     } catch (err) {
-      return rejectWithValue(err.message)
+      if (err instanceof Error) {
+        return rejectWithValue(err.message)
+      }
+      return rejectWithValue("An unknown error occurred")
     }
   }
 )
@@ -61,6 +67,7 @@ const projectsSlice = createSlice({
       })
       .addCase(loadProjects.rejected, (state, action) => {
         state.loading = false
+        // @ts-ignore
         state.error = action.payload
       })
       .addCase(saveProject.pending, (state) => {
@@ -82,6 +89,7 @@ const projectsSlice = createSlice({
       })
       .addCase(saveProject.rejected, (state, action) => {
         state.loading = false
+        // @ts-ignore
         state.error = action.payload
       })
   },

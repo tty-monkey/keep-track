@@ -20,7 +20,10 @@ export const loadProject = createAsyncThunk(
     try {
       return await projectAPI.find(id)
     } catch (err) {
-      return rejectWithValue(err.message)
+      if (err instanceof Error) {
+        return rejectWithValue(err.message)
+      }
+      return rejectWithValue("An unknown error occurred")
     }
   }
 )
@@ -42,6 +45,7 @@ const projectSlice = createSlice({
       })
       .addCase(loadProject.rejected, (state, action) => {
         state.loading = false
+        // @ts-ignore
         state.error = action.payload
       })
   },

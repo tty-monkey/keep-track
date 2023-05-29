@@ -18,7 +18,7 @@ function ProjectForm({
     budget: '',
   })
   //const dispatch = useDispatch<ThunkDispatch<ProjectsState, any, AnyAction>>();
-  const { mutate: saveProject, isLoading } = useSaveProject()
+  const { mutate: saveProject } = useSaveProject()
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault()

@@ -9,7 +9,6 @@ export default function ProjectsPage() {
     isLoading,
     error,
     isError,
-    isFetching,
     page,
     setPage,
     isPreviousData,
