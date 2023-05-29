@@ -1,5 +1,5 @@
 import { Project } from './Project'
-const baseUrl = 'http://localhost:4000'
+const baseUrl = import.meta.env.VITE_API_ADDRESS
 const url = `${baseUrl}/projects`
 
 function translateStatusToErrorMessage(status: number) {
