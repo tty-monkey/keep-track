@@ -19,40 +19,50 @@ export default function ProjectsPage() {
       {data ? (
        <>
          <ProjectList projects={data}/>
-         <div className="col-sm-4">Current page: {page + 1}</div>
-         { page == 0 ? (
-           <button
-             className="py-2.5 px-5 mt-6 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 w-80 opacity-60 cursor-not-allowed"
-           >
-             Previous
-           </button>
-         ) : (
-           <button
-             className="py-2.5 px-5 mt-6 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 w-80"
-             onClick={() => setPage((oldPage) => oldPage - 1)}
-           >
-             Previous
-           </button>
-         )}
-         { data.length != 9 ? (
-           <button
-             className="py-2.5 px-5 mt-6 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 w-80 opacity-60 cursor-not-allowed"
-           >
-             Next
-           </button>
-         ) : (
-           <button
-             className="py-2.5 px-5 mt-6 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 w-80"
-             onClick={() => {
-               if (!isPreviousData) {
-                 setPage((oldPage) => oldPage + 1)
-               }}
-             }
-             disabled={data.length != 9}
-           >
-             Next
-           </button>
-         )}
+         <nav
+           className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+           aria-label="Pagination"
+         >
+           <div className="hidden sm:block">
+             <p className="text-sm text-gray-700">
+               Current page: {page + 1}
+             </p>
+           </div>
+           <div className="flex flex-1 justify-between sm:justify-end">
+             { page == 0 ? (
+               <button
+                 className="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 opacity-60 cursor-not-allowed"
+               >
+                 Previous
+               </button>
+             ) : (
+               <button
+                 className="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
+                 onClick={() => setPage((oldPage) => oldPage - 1)}
+               >
+                 Previous
+               </button>
+             )}
+             { data.length != 9 ? (
+                 <button
+                   className="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 opacity-60 cursor-not-allowed"
+                 >
+                   Next
+                 </button>
+             ) : (
+               <button
+                 className="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
+                 onClick={() => {
+                   if (!isPreviousData) {
+                     setPage((oldPage) => oldPage + 1)
+                   }}
+                 }
+               >
+                 Next
+               </button>
+             )}
+           </div>
+         </nav>
        </>
       ) : isLoading ? (
         <div className="flex items-center justify-center mt-10">
