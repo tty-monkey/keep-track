@@ -1,6 +1,15 @@
 # KeepTrack
 Project budgeting made simple, live version can be found [here](https://keep-track.vercel.app/projects)
 
+Fullstack service built using:
+* React.js
+* Redux
+* React-router
+* TanStack Query
+* Tailwind CSS
+* json-server
+
+
 Install dependencies
 ```bash
 npm install
