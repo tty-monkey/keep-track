@@ -2,6 +2,7 @@
 Project budgeting made simple, live version can be found [here](https://keep-track.vercel.app/projects) (Vercel)
 
 The service was built using:
+* TypeScript
 * React.js
 * Redux
 * React-router
