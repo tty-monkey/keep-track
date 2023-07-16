@@ -1,5 +1,5 @@
 # KeepTrack
-Project budgeting made simple, live version can be found [here](https://keep-track.vercel.app/projects) (Vercel)
+Project budgeting made simple, live version can be found [here](https://keep-track.vercel.app/projects)
 
 The service was built using:
 * TypeScript
