@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "api": "json-server api/db.json --port 4000"
+    "api": "json-server api/db.json --host 0.0.0.0 --port 4000"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

@@ -1,6 +1,4 @@
-import { ReactNode } from 'react'
-
-export default function HomePage(): ReactNode {
+export default function HomePage() {
   return (
     <div className="bg-white">
       <main>
@@ -97,5 +95,4 @@ export default function HomePage(): ReactNode {
       </main>
     </div>
   )
-
 }
