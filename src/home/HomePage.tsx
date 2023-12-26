@@ -19,7 +19,6 @@ export default function HomePage() {
                 <path d="M.5 200V.5H200" fill="none" />
               </pattern>
             </defs>
-
           </svg>
           <div className="overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 pt-4 lg:px-8">
@@ -29,7 +28,8 @@ export default function HomePage() {
                     Redefining Connections Through Architecture.
                   </h1>
                   <p className="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                    Discover spaces where innovative design meets community spirit, crafted to bring people together. Join us in shaping a sustainable, connected world.
+                    Discover spaces where innovative design meets community spirit, crafted to bring
+                    people together. Join us in shaping a sustainable, connected world.
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     <a

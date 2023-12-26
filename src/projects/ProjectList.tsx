@@ -1,4 +1,4 @@
-import { Project } from './Project.ts'
+import { Project } from "./Project.ts"
 import ProjectCard from "./ProjectCard.tsx"
 import ProjectForm from "./ProjectForm.tsx"
 import { useState } from "react"
@@ -19,23 +19,16 @@ function ProjectList({ projects }: ProjectListProps) {
   }
 
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (
         <div key={project.id}>
           {project === projectBeingEdited ? (
-            <ProjectForm
-              project={project}
-              onCancel={cancelEditing}
-            />
+            <ProjectForm project={project} onCancel={cancelEditing} />
           ) : (
-            <ProjectCard
-              project={project}
-              onEdit={handleEdit}
-            ></ProjectCard>
+            <ProjectCard project={project} onEdit={handleEdit}></ProjectCard>
           )}
         </div>
-        )
-      )}
+      ))}
     </div>
   )
 }

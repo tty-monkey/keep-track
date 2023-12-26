@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { projectAPI } from './projectAPI'
-import { Project } from './Project'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { projectAPI } from "./projectAPI"
+import { Project } from "./Project"
 
 export interface ProjectState {
   loading: boolean
@@ -15,8 +15,8 @@ export const initialProjectState: ProjectState = {
 }
 
 export const loadProject = createAsyncThunk(
-  'project/loadProject',
-  async(id: number, { rejectWithValue }) => {
+  "project/loadProject",
+  async (id: number, { rejectWithValue }) => {
     try {
       return await projectAPI.find(id)
     } catch (err) {
@@ -25,11 +25,11 @@ export const loadProject = createAsyncThunk(
       }
       return rejectWithValue("An unknown error occurred")
     }
-  }
+  },
 )
 
 const projectSlice = createSlice({
-  name: 'project',
+  name: "project",
   initialState: initialProjectState,
   reducers: {},
   extraReducers: (builder) => {

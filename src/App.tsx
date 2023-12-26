@@ -1,4 +1,4 @@
-import './App.css'
+import "./App.css"
 import ProjectsPage from "./projects/ProjectsPage"
 import ProjectPage from "./projects/ProjectPage"
 
@@ -6,13 +6,13 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-do
 import HomePage from "./home/HomePage"
 import { useState } from "react"
 import { Dialog } from "@headlessui/react"
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Provider } from 'react-redux'
-import { store } from '../state.ts'
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
+import { Provider } from "react-redux"
+import { store } from "../state.ts"
 
 const navigation = [
-  { id: 1, name: 'Home', href: '/' },
-  { id: 2, name: 'Projects', href: '/projects' },
+  { id: 1, name: "Home", href: "/" },
+  { id: 2, name: "Projects", href: "/projects" },
 ]
 
 function App() {
@@ -41,13 +41,16 @@ function App() {
             </div>
             <div className="hidden lg:flex lg:gap-x-12">
               {navigation.map((item) => (
-                <NavLink key={item.id} to={item.href} className="text-lg font-semibold leading-6 text-gray-900 [&.active]:text-primary-500">
+                <NavLink
+                  key={item.id}
+                  to={item.href}
+                  className="text-lg font-semibold leading-6 text-gray-900 [&.active]:text-primary-500"
+                >
                   {item.name}
                 </NavLink>
               ))}
             </div>
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            </div>
+            <div className="hidden lg:flex lg:flex-1 lg:justify-end"></div>
           </nav>
           <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
             <div className="fixed inset-0 z-10" />
@@ -87,7 +90,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/projects/:id" element={<ProjectPage />}></Route>
+            <Route path="/projects/:id" element={<ProjectPage />}></Route>
           </Routes>
         </div>
       </Router>

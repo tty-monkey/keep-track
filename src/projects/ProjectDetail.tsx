@@ -1,4 +1,4 @@
-import { Project} from "./Project"
+import { Project } from "./Project"
 
 interface ProjectDetailProps {
   project: Project
@@ -6,7 +6,7 @@ interface ProjectDetailProps {
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   return (
-    <div className="flex flex-col items-center justify-center p-4 text-center border-b border-gray-200 md:border-r m-4 bg-slate-200">
+    <div className="m-4 flex flex-col items-center justify-center border-b border-gray-200 bg-slate-200 p-4 text-center md:border-r">
       <img className="" src={project.imageUrl} alt={project.name} />
       <section>
         <h3 className="mt-2">
@@ -16,10 +16,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
         <p>Budget : {project.budget.toLocaleString()}</p>
         <p>Signed: {project.contractSignedOn.toLocaleDateString()}</p>
         <p>
-          <mark className="active">
-            {' '}
-            {project.isActive ? 'active' : 'inactive'}
-          </mark>
+          <mark className="active"> {project.isActive ? "active" : "inactive"}</mark>
         </p>
       </section>
     </div>

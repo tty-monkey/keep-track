@@ -3,7 +3,9 @@
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
+    "types": ["node", "jest"],
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",

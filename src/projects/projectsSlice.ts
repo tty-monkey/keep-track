@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { projectAPI } from './projectAPI'
-import { Project } from './Project'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { projectAPI } from "./projectAPI"
+import { Project } from "./Project"
 
 export interface ProjectsState {
   loading: boolean
@@ -17,8 +17,8 @@ export const initialProjectsState: ProjectsState = {
 }
 
 export const loadProjects = createAsyncThunk(
-  'projects/loadProjects',
-  async(page: number, { rejectWithValue }) => {
+  "projects/loadProjects",
+  async (page: number, { rejectWithValue }) => {
     try {
       const response = await projectAPI.get(page)
       return { projects: response, page }
@@ -28,12 +28,12 @@ export const loadProjects = createAsyncThunk(
       }
       return rejectWithValue("An unknown error occurred")
     }
-  }
+  },
 )
 
 export const saveProject = createAsyncThunk(
-  'projects/saveProject',
-  async(project: Project, { rejectWithValue }) => {
+  "projects/saveProject",
+  async (project: Project, { rejectWithValue }) => {
     try {
       return await projectAPI.put(project)
     } catch (err) {
@@ -42,11 +42,11 @@ export const saveProject = createAsyncThunk(
       }
       return rejectWithValue("An unknown error occurred")
     }
-  }
+  },
 )
 
 const projectsSlice = createSlice({
-  name: 'projects',
+  name: "projects",
   initialState: initialProjectsState,
   reducers: {},
   extraReducers: (builder) => {
@@ -79,9 +79,7 @@ const projectsSlice = createSlice({
           state.projects = [...state.projects, action.payload]
         } else {
           state.projects = state.projects.map((project) => {
-            return project.id === action.payload.id
-              ? { ...project, ...action.payload }
-              : project
+            return project.id === action.payload.id ? { ...project, ...action.payload } : project
           })
         }
         state.loading = false
