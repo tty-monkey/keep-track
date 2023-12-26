@@ -3,7 +3,7 @@ export default interface ProjectDto {
   name: string
   description: string
   imageUrl: string
-  contractTypeId?: number
+  contractTypeId: number
   contractSignedOn: Date | string
   budget: number
   isActive: boolean

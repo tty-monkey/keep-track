@@ -2,13 +2,13 @@ import ProjectDto from "../types/ProjectDto"
 
 export default class Project {
   id: number | undefined
-  name: string = ""
-  description: string = ""
-  imageUrl: string = ""
-  contractTypeId: number | undefined
+  name: string
+  description: string
+  imageUrl: string
+  contractTypeId: number
   contractSignedOn: Date = new Date()
-  budget: number = 0
-  isActive: boolean = false
+  budget: number
+  isActive: boolean
 
   get isNew(): boolean {
     return this.id === undefined
