@@ -1,17 +1,18 @@
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSync } from "@fortawesome/free-solid-svg-icons"
-import ProjectDetail from "./ProjectDetail.tsx"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { ThunkDispatch } from "redux-thunk"
-import { loadProject } from "./projectSlice.ts"
+import { useParams } from "react-router-dom"
 import { AnyAction } from "redux"
-import { AppState } from "../../state.ts"
-import { ProjectsState } from "./projectsSlice.ts"
+import { ThunkDispatch } from "redux-thunk"
 
-function ProjectPage() {
-  const dispatch = useDispatch<ThunkDispatch<ProjectsState, any, AnyAction>>()
+import { loadProject } from "../../state/projectSlice"
+import { ProjectsState } from "../../state/projectsSlice"
+import { AppState } from "../../state/state"
+import ProjectDetail from "./ProjectDetail"
+
+export default function ProjectPage() {
+  const dispatch = useDispatch<ThunkDispatch<ProjectsState, void, AnyAction>>()
   const loading = useSelector((appState: AppState) => appState.projectState.loading)
   const project = useSelector((appState: AppState) => appState.projectState.project)
   const error = useSelector((appState: AppState) => appState.projectState.error)
@@ -47,5 +48,3 @@ function ProjectPage() {
     </div>
   )
 }
-
-export default ProjectPage

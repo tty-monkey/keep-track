@@ -1,7 +1,8 @@
-import ProjectList from "./ProjectList"
 import { faSync } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useProjects } from "./projectHooks.ts"
+
+import { useProjects } from "../../hooks/projectHooks"
+import ProjectList from "./ProjectList"
 
 export default function ProjectsPage() {
   const { data, isLoading, error, isError, page, setPage, isPreviousData } = useProjects()
@@ -19,7 +20,7 @@ export default function ProjectsPage() {
               <p className="text-sm text-gray-700">Current page: {page + 1}</p>
             </div>
             <div className="flex flex-1 justify-between sm:justify-end">
-              {page == 0 ? (
+              {page === 0 ? (
                 <button className="relative ml-3 inline-flex cursor-not-allowed items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 opacity-60 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0">
                   Previous
                 </button>
@@ -31,7 +32,7 @@ export default function ProjectsPage() {
                   Previous
                 </button>
               )}
-              {data.length != 9 ? (
+              {data.length !== 9 ? (
                 <button className="relative ml-3 inline-flex cursor-not-allowed items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 opacity-60 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0">
                   Next
                 </button>

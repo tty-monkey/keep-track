@@ -1,7 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { projectAPI } from "./projectAPI.ts"
 import { useState } from "react"
-import { Project } from "./Project.ts"
+
+import projectAPI from "../api/projectAPI"
+import Project from "../models/Project"
 
 export function useProjects() {
   const [page, setPage] = useState(0)

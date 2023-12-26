@@ -1,7 +1,8 @@
-import { Project } from "./Project.ts"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom"
+
+import Project from "../../models/Project"
 
 function formatDescription(description: string): string {
   return description.substring(0, 60) + "..."
@@ -12,7 +13,7 @@ interface ProjectCardProps {
   onEdit: (project: Project) => void
 }
 
-function ProjectCard(props: ProjectCardProps) {
+export default function ProjectCard(props: ProjectCardProps) {
   const { project, onEdit } = props
 
   const handleEditClick = (projectBeingEdited: Project) => {
@@ -43,5 +44,3 @@ function ProjectCard(props: ProjectCardProps) {
     </div>
   )
 }
-
-export default ProjectCard

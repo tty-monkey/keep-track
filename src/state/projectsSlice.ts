@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { projectAPI } from "./projectAPI"
-import { Project } from "./Project"
+
+import projectAPI from "../api/projectAPI"
+import Project from "../models/Project"
 
 export interface ProjectsState {
   loading: boolean
@@ -67,7 +68,7 @@ const projectsSlice = createSlice({
       })
       .addCase(loadProjects.rejected, (state, action) => {
         state.loading = false
-        // @ts-ignore
+        // @ts-expect-error: Payload is unknown
         state.error = action.payload
       })
       .addCase(saveProject.pending, (state) => {
@@ -87,7 +88,7 @@ const projectsSlice = createSlice({
       })
       .addCase(saveProject.rejected, (state, action) => {
         state.loading = false
-        // @ts-ignore
+        // @ts-expect-error: Payload is unknown
         state.error = action.payload
       })
   },

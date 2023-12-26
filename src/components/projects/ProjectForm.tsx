@@ -1,13 +1,14 @@
-import { Project } from "./Project"
-import { SyntheticEvent, useState } from "react"
-import { useSaveProject } from "./projectHooks"
+import { ChangeEvent, SyntheticEvent, useState } from "react"
+
+import { useSaveProject } from "../../hooks/projectHooks"
+import Project from "../../models/Project"
 
 interface ProjectFormProps {
   project: Project
   onCancel: () => void
 }
 
-function ProjectForm({ project: initialProject, onCancel }: ProjectFormProps) {
+export default function ProjectForm({ project: initialProject, onCancel }: ProjectFormProps) {
   const [project, setProject] = useState(initialProject)
   const [errors, setErrors] = useState({
     name: "",
@@ -24,9 +25,16 @@ function ProjectForm({ project: initialProject, onCancel }: ProjectFormProps) {
     saveProject(project)
   }
 
-  const handleChange = (event: any) => {
-    const { type, name, value, checked } = event.target
-    let updatedValue = type === "checkbox" ? checked : value
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { type, name, value } = event.target
+    let updatedValue: string | number | boolean = value
+
+    if (type === "checkbox") {
+      const input = event.target as HTMLInputElement
+      updatedValue = input.checked
+    } else if (type === "number") {
+      updatedValue = Number(value)
+    }
 
     if (type === "number") {
       updatedValue = Number(updatedValue)
@@ -186,5 +194,3 @@ function ProjectForm({ project: initialProject, onCancel }: ProjectFormProps) {
     </form>
   )
 }
-
-export default ProjectForm

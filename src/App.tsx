@@ -1,14 +1,15 @@
 import "./App.css"
-import ProjectsPage from "./projects/ProjectsPage"
-import ProjectPage from "./projects/ProjectPage"
 
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom"
-import HomePage from "./home/HomePage"
-import { useState } from "react"
 import { Dialog } from "@headlessui/react"
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
+import { useState } from "react"
 import { Provider } from "react-redux"
-import { store } from "../state.ts"
+import { BrowserRouter as Router, NavLink, Route, Routes } from "react-router-dom"
+
+import HomePage from "./components/home/HomePage"
+import ProjectPage from "./components/projects/ProjectPage"
+import ProjectsPage from "./components/projects/ProjectsPage"
+import { store } from "./state/state"
 
 const navigation = [
   { id: 1, name: "Home", href: "/" },

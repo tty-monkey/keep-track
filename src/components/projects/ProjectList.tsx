@@ -1,13 +1,14 @@
-import { Project } from "./Project.ts"
-import ProjectCard from "./ProjectCard.tsx"
-import ProjectForm from "./ProjectForm.tsx"
 import { useState } from "react"
+
+import Project from "../../models/Project"
+import ProjectCard from "./ProjectCard"
+import ProjectForm from "./ProjectForm"
 
 interface ProjectListProps {
   projects: Project[]
 }
 
-function ProjectList({ projects }: ProjectListProps) {
+export default function ProjectList({ projects }: ProjectListProps) {
   const [projectBeingEdited, setProjectBeingEdited] = useState({})
 
   const handleEdit = (project: Project) => {
@@ -32,5 +33,3 @@ function ProjectList({ projects }: ProjectListProps) {
     </div>
   )
 }
-
-export default ProjectList

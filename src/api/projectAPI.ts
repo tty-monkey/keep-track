@@ -1,5 +1,7 @@
-import { Project } from "./Project"
-const baseUrl = import.meta.env.VITE_API_ADDRESS
+import Project from "../models/Project"
+import ProjectDto from "../types/ProjectDto"
+import { getApiUrl } from "./config"
+const baseUrl = getApiUrl()
 const url = `${baseUrl}/projects`
 
 function translateStatusToErrorMessage(status: number) {
@@ -13,7 +15,7 @@ function translateStatusToErrorMessage(status: number) {
   }
 }
 
-function checkStatus(response: any) {
+function checkStatus(response: Response) {
   if (response.ok) {
     return response
   } else {
@@ -33,17 +35,17 @@ function parseJSON(response: Response) {
   return response.json()
 }
 
-function delay(ms: number) {
-  return function (x: any): Promise<any> {
+function delay<T>(ms: number) {
+  return function (x: T): Promise<T> {
     return new Promise((resolve) => setTimeout(() => resolve(x), ms))
   }
 }
 
-function convertToProjectModels(data: any[]): Project[] {
+function convertToProjectModels(data: ProjectDto[]): Project[] {
   return data.map(convertToProjectModel)
 }
 
-function convertToProjectModel(item: any): Project {
+function convertToProjectModel(item: ProjectDto): Project {
   return new Project(item)
 }
 
@@ -86,4 +88,4 @@ const projectAPI = {
   },
 }
 
-export { projectAPI }
+export default projectAPI

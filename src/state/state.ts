@@ -1,14 +1,15 @@
-import { combineReducers } from "redux"
 import { configureStore } from "@reduxjs/toolkit"
-import { initialProjectsState, projectsReducer, ProjectsState } from './src/projects/projectsSlice'
-import { initialProjectState, projectReducer, ProjectState } from './src/projects/projectSlice'
+import { combineReducers } from "redux"
+
+import { initialProjectState, projectReducer, ProjectState } from "./projectSlice"
+import { initialProjectsState, projectsReducer, ProjectsState } from "./projectsSlice"
 
 const reducers = combineReducers({
   projectsState: projectsReducer,
-  projectState: projectReducer
+  projectState: projectReducer,
 })
 
-export default function initStore(preloadedState: AppState) {
+function initStore(preloadedState: AppState) {
   return configureStore({
     reducer: reducers,
     preloadedState,
@@ -23,6 +24,6 @@ export interface AppState {
 export const initialAppState: AppState = {
   projectsState: initialProjectsState,
   projectState: initialProjectState,
-};
+}
 
-export const store = initStore(initialAppState);
+export const store = initStore(initialAppState)
