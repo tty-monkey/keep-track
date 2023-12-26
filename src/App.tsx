@@ -24,7 +24,7 @@ function App() {
         <header className="bg-white">
           <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div className="flex lg:flex-1">
-              <a href="#" className="-m-1.5 p-1.5">
+              <a href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">KeepTrack</span>
                 <img className="h-14 w-auto" src="/assets/logo-3.svg" alt="" />
               </a>
