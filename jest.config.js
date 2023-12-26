@@ -6,4 +6,8 @@ module.exports = {
     "\\.(css|less)$": "identity-obj-proxy",
   },
   setupFilesAfterEnv: ["<rootDir>/src/tests/jest.setup.ts"],
+  setupFiles: ["<rootDir>/src/tests/jest.polyfills.js"],
+  testEnvironmentOptions: {
+    customExportConditions: [""],
+  },
 }

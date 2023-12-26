@@ -2,7 +2,7 @@ import Project from "../models/Project"
 import ProjectDto from "../types/ProjectDto"
 import { getApiUrl } from "./config"
 const baseUrl = getApiUrl()
-const url = `${baseUrl}/projects`
+export const url = `${baseUrl}/projects`
 
 function translateStatusToErrorMessage(status: number) {
   switch (status) {
@@ -56,9 +56,9 @@ const projectAPI = {
       .then(checkStatus)
       .then(parseJSON)
       .then(convertToProjectModels)
-      .catch((error: TypeError) => {
+      .catch((error) => {
         console.log("log client error " + error)
-        throw new Error("There was an error retrieving the projects. Please try again")
+        throw new Error("There was an error retrieving the projects. Please try again", error)
       })
   },
   put(project: Project) {
