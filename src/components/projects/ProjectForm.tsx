@@ -85,6 +85,8 @@ export default function ProjectForm({ project: initialProject, onCancel }: Proje
 
   return (
     <form
+      aria-label="Edit a Project"
+      name="project-form"
       className="m-4 flex h-96 flex-col justify-center border-b border-gray-200 bg-slate-200 p-4 pl-8 pr-8 text-center md:border-r"
       onSubmit={handleSubmit}
     >
