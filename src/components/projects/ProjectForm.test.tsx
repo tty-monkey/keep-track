@@ -14,7 +14,7 @@ describe("<ProjectForm />", () => {
   let project: Project
   let updatedProject: Project
   let handleCancel: jest.Mock
-  let nameTextBox: any
+  let nameTextBox: HTMLElement
   let descriptionTextBox: HTMLElement
   let budgetTextBox: HTMLElement
 
