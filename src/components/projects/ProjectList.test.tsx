@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 import { Provider } from "react-redux"
 import { MemoryRouter } from "react-router-dom"
 
-import { MOCK_PROJECTS } from "../../api/MockProjects"
+import { MOCK_PROJECTS } from "../../mocks/MockProjects"
 import { store } from "../../state/state"
 import ProjectList from "./ProjectList"
 

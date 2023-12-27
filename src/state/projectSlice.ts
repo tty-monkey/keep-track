@@ -19,7 +19,11 @@ export const loadProject = createAsyncThunk(
   "project/loadProject",
   async (id: number, { rejectWithValue }) => {
     try {
-      return await projectAPI.find(id)
+      const response = await projectAPI.find(id)
+      if (response === null) {
+        return rejectWithValue("Project not found")
+      }
+      return response
     } catch (err) {
       if (err instanceof Error) {
         return rejectWithValue(err.message)
