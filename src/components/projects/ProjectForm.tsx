@@ -98,6 +98,8 @@ export default function ProjectForm({ project: initialProject, onCancel }: Proje
           Project Name
         </label>
         <input
+          id="name"
+          aria-label="project name"
           className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           type="text"
           name="name"
@@ -122,6 +124,8 @@ export default function ProjectForm({ project: initialProject, onCancel }: Proje
           Project Description
         </label>
         <textarea
+          id="description"
+          aria-label="project description"
           className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           name="description"
           placeholder="enter description"
@@ -145,6 +149,7 @@ export default function ProjectForm({ project: initialProject, onCancel }: Proje
           Project Budget
         </label>
         <input
+          id="budget"
           className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           type="number"
           name="budget"
@@ -164,6 +169,7 @@ export default function ProjectForm({ project: initialProject, onCancel }: Proje
       <div className="mb-4 flex items-start">
         <div className="flex h-5 items-center">
           <input
+            id="is-active"
             className="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800"
             type="checkbox"
             name="isActive"

@@ -8,10 +8,10 @@ import { MOCK_PROJECTS } from "../../api/MockProjects"
 import { store } from "../../state/state"
 import ProjectList from "./ProjectList"
 
+const queryClient = new QueryClient()
+
 describe("<ProjectList />", () => {
   const setup = () => {
-    const queryClient = new QueryClient()
-
     render(
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
