@@ -1,16 +1,6 @@
 # KeepTrack
 Project budgeting made simple, live version can be found [here](https://keep-track.martishin.com)
 
-The service was built using:
-* TypeScript
-* React.js
-* Redux
-* React-router
-* TanStack Query
-* Tailwind CSS
-* json-server
-
-
 Install dependencies
 ```bash
 npm install
